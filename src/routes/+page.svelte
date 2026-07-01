@@ -8,128 +8,322 @@
 	const address = '64 Rue Audubon, Dollard-des-Ormeaux, QC H9B 3E9';
 	const currentYear = new Date().getFullYear();
 
-	const hours = [
-		{ day: 'Lundi', time: '8h00-17h00' },
-		{ day: 'Mardi', time: '8h00-17h00' },
-		{ day: 'Mercredi', time: '8h00-17h00' },
-		{ day: 'Jeudi', time: '8h00-17h00' },
-		{ day: 'Vendredi', time: '8h00-17h00' },
-		{ day: 'Samedi', time: 'Ferme' },
-		{ day: 'Dimanche', time: 'Ferme' }
-	];
+	type Language = 'fr' | 'en';
 
-	const services = [
-		{
-			title: 'Residentiel',
-			text: 'Installation, renovation, diagnostic et entretien electrique pour les maisons, condos et immeubles.'
-		},
-		{
-			title: 'Commercial',
-			text: 'Interventions fiables pour commerces, bureaux et proprietes locatives, avec un travail documente et soigne.'
-		},
-		{
-			title: 'Mise aux normes',
-			text: 'Conseils clairs, execution conforme au code et aucune solution rapide qui compromet la securite.'
-		}
-	];
+	let language = $state<Language>('fr');
 
-	const reviews = [
-		{
-			quote:
-				'Absolument excellent. Tres competent, professionnel et humain. Tout etait explique clairement et le travail a ete fait efficacement.',
-			name: 'Avis Google'
+	const copy = {
+		fr: {
+			metaTitle: 'Patel Électrique Inc | Électriciens résidentiels et commerciaux',
+			metaDescription:
+				'Patel Électrique Inc offre des services électriques résidentiels et commerciaux à Dollard-des-Ormeaux. Appelez le (514) 684-3844 pour un travail propre, fiable et conforme au code.',
+			nav: {
+				services: 'Services',
+				reviews: 'Avis',
+				contact: 'Contact'
+			},
+			hero: {
+				eyebrow: 'Électriciens résidentiels et commerciaux',
+				title: 'Un travail électrique propre, ponctuel et conforme.',
+				intro:
+					'Patel Électrique Inc accompagne les propriétaires et les entreprises avec des conseils clairs, une exécution précise et une réputation bâtie sur la confiance.',
+				estimate: 'Demander une estimation',
+				call: `Appeler ${phoneDisplay}`,
+				reviews: 'Voir les avis',
+				media: 'Installation résidentielle'
+			},
+			rating: {
+				label: 'Évaluation Google',
+				reviews: '136 avis Google',
+				clean: 'Travail bien fait et propre',
+				punctual: "À l'heure prévue",
+				call: `Appel direct ${phoneDisplay}`
+			},
+			statement: {
+				kicker: 'Patel Électrique Inc',
+				title: 'Des interventions sérieuses, sans raccourcis.',
+				text: 'Chaque mandat est traité avec le même standard : comprendre le besoin, expliquer les options, protéger les lieux, exécuter avec précision et laisser une installation sécuritaire.'
+			},
+			servicesTitle: 'Pour propriétés privées et espaces de travail.',
+			services: [
+				{
+					title: 'Résidentiel',
+					text: 'Installation, rénovation, diagnostic et entretien électrique pour les maisons, condos et immeubles.'
+				},
+				{
+					title: 'Commercial',
+					text: 'Interventions fiables pour commerces, bureaux et propriétés locatives, avec un travail documenté et soigné.'
+				},
+				{
+					title: 'Mise aux normes',
+					text: 'Conseils clairs, exécution conforme au code et aucune solution rapide qui compromet la sécurité.'
+				}
+			],
+			proof: {
+				kicker: 'Méthode',
+				title: 'Clair avant, propre pendant, conforme après.',
+				text: "Les avis clients reviennent sur les mêmes points : ponctualité, professionnalisme, explications simples et travaux faits avec soin. C'est le standard appliqué sur chaque intervention.",
+				media: 'Inspection et vérification',
+				steps: [
+					'Évaluation du besoin et conseils pratiques',
+					'Exécution efficace avec respect des lieux',
+					'Travail terminé selon le code et sans compromis'
+				]
+			},
+			reviewsTitle: 'Une note parfaite, portée par la constance.',
+			reviews: [
+				{
+					quote:
+						'Absolument excellent. Très compétent, professionnel et humain. Tout était expliqué clairement et le travail a été fait efficacement.',
+					name: 'Avis Google'
+				},
+				{
+					quote:
+						'Utilisé depuis plus de 10 ans pour des propriétés résidentielles et commerciales. Toujours professionnel, fiable et hautement qualifié.',
+					name: 'Client résidentiel et commercial'
+				},
+				{
+					quote:
+						'Conseils professionnels, travail terminé à temps et confiance que le projet sera fait selon le code, sans raccourcis.',
+					name: 'Avis Google'
+				}
+			],
+			contact: {
+				title: 'Parlez-nous de votre projet.',
+				text: "Pour une demande rapide, appelez directement. Sinon, décrivez le travail à faire, l'adresse du projet et vos disponibilités.",
+				detailsLabel: 'Coordonnées',
+				phone: 'Téléphone',
+				address: 'Adresse',
+				hours: "Heures d'ouverture",
+				holiday: 'Les horaires peuvent varier les jours fériés.',
+				form: {
+					name: 'Nom',
+					email: 'Courriel',
+					project: 'Type de projet',
+					select: 'Sélectionner',
+					message: 'Message',
+					submit: 'Envoyer la demande'
+				}
+			},
+			hours: [
+				{ day: 'Lundi', time: '8h00-17h00' },
+				{ day: 'Mardi', time: '8h00-17h00' },
+				{ day: 'Mercredi', time: '8h00-17h00' },
+				{ day: 'Jeudi', time: '8h00-17h00' },
+				{ day: 'Vendredi', time: '8h00-17h00' },
+				{ day: 'Samedi', time: 'Fermé' },
+				{ day: 'Dimanche', time: 'Fermé' }
+			],
+			footer: {
+				tagline: 'Électriciens résidentiels et commerciaux à Dollard-des-Ormeaux.',
+				coordinates: 'Coordonnées',
+				hours: 'Heures',
+				navigation: 'Navigation',
+				privacy: 'Politique de confidentialité',
+				rights: `Tous droits réservés.`
+			}
 		},
-		{
-			quote:
-				'Utilise depuis plus de 10 ans pour des proprietes residentielles et commerciales. Toujours professionnel, fiable et hautement qualifie.',
-			name: 'Client residentiel et commercial'
-		},
-		{
-			quote:
-				'Conseils professionnels, travail termine a temps et confiance que le projet sera fait selon le code, sans raccourcis.',
-			name: 'Avis Google'
+		en: {
+			metaTitle: 'Patel Electrique Inc | Residential and Commercial Electricians',
+			metaDescription:
+				'Patel Electrique Inc provides residential and commercial electrical services in Dollard-des-Ormeaux. Call (514) 684-3844 for clean, reliable, code-compliant work.',
+			nav: {
+				services: 'Services',
+				reviews: 'Reviews',
+				contact: 'Contact'
+			},
+			hero: {
+				eyebrow: 'Residential and commercial electricians',
+				title: 'Clean, punctual, code-compliant electrical work.',
+				intro:
+					'Patel Electrique Inc helps homeowners and businesses with clear advice, precise execution, and a reputation built on trust.',
+				estimate: 'Request an estimate',
+				call: `Call ${phoneDisplay}`,
+				reviews: 'See reviews',
+				media: 'Residential installation'
+			},
+			rating: {
+				label: 'Google rating',
+				reviews: '136 Google reviews',
+				clean: 'Clean, well-done work',
+				punctual: 'On time as scheduled',
+				call: `Direct call ${phoneDisplay}`
+			},
+			statement: {
+				kicker: 'Patel Electrique Inc',
+				title: 'Serious electrical work, without shortcuts.',
+				text: 'Every job follows the same standard: understand the need, explain the options, protect the space, execute with precision, and leave a safe installation behind.'
+			},
+			servicesTitle: 'For private properties and workspaces.',
+			services: [
+				{
+					title: 'Residential',
+					text: 'Installation, renovation, troubleshooting, and electrical maintenance for homes, condos, and buildings.'
+				},
+				{
+					title: 'Commercial',
+					text: 'Reliable service for businesses, offices, and rental properties, with careful and documented work.'
+				},
+				{
+					title: 'Code compliance',
+					text: 'Clear advice, code-compliant execution, and no quick fixes that compromise safety.'
+				}
+			],
+			proof: {
+				kicker: 'Method',
+				title: 'Clear before, clean during, compliant after.',
+				text: 'Customer reviews point to the same qualities: punctuality, professionalism, simple explanations, and careful workmanship. That is the standard applied to every service call.',
+				media: 'Inspection and verification',
+				steps: [
+					'Needs assessment and practical advice',
+					'Efficient execution with respect for the property',
+					'Work completed to code without compromise'
+				]
+			},
+			reviewsTitle: 'A perfect rating, earned through consistency.',
+			reviews: [
+				{
+					quote:
+						'Absolutely excellent. Very knowledgeable, professional, and personable. Everything was explained clearly and the work was completed efficiently.',
+					name: 'Google review'
+				},
+				{
+					quote:
+						'Used for more than 10 years for residential and commercial properties. Always professional, reliable, and highly skilled.',
+					name: 'Residential and commercial client'
+				},
+				{
+					quote:
+						'Professional advice, work completed on time, and confidence that the project will be done to code without shortcuts.',
+					name: 'Google review'
+				}
+			],
+			contact: {
+				title: 'Tell us about your project.',
+				text: 'For a quick request, call directly. Otherwise, describe the work needed, the project address, and your availability.',
+				detailsLabel: 'Contact details',
+				phone: 'Phone',
+				address: 'Address',
+				hours: 'Opening hours',
+				holiday: 'Hours may vary on statutory holidays.',
+				form: {
+					name: 'Name',
+					email: 'Email',
+					project: 'Project type',
+					select: 'Select',
+					message: 'Message',
+					submit: 'Send request'
+				}
+			},
+			hours: [
+				{ day: 'Monday', time: '8:00 AM-5:00 PM' },
+				{ day: 'Tuesday', time: '8:00 AM-5:00 PM' },
+				{ day: 'Wednesday', time: '8:00 AM-5:00 PM' },
+				{ day: 'Thursday', time: '8:00 AM-5:00 PM' },
+				{ day: 'Friday', time: '8:00 AM-5:00 PM' },
+				{ day: 'Saturday', time: 'Closed' },
+				{ day: 'Sunday', time: 'Closed' }
+			],
+			footer: {
+				tagline: 'Residential and commercial electricians in Dollard-des-Ormeaux.',
+				coordinates: 'Contact',
+				hours: 'Hours',
+				navigation: 'Navigation',
+				privacy: 'Privacy Policy',
+				rights: `All rights reserved.`
+			}
 		}
-	];
+	} as const;
+
+	const content = $derived(copy[language]);
 </script>
 
 <svelte:head>
-	<title>Patel Electrique Inc | Electriciens residentiels et commerciaux</title>
-	<meta
-		name="description"
-		content="Patel Electrique Inc offre des services electriques residentiels et commerciaux a Dollard-des-Ormeaux. Appelez le (514) 684-3844 pour un travail propre, fiable et conforme au code."
-	/>
+	<title>{content.metaTitle}</title>
+	<meta name="description" content={content.metaDescription} />
 </svelte:head>
 
 <main>
 	<section class="hero" id="accueil">
-		<header class="site-header" aria-label="Navigation principale">
+		<header
+			class="site-header"
+			aria-label={language === 'fr' ? 'Navigation principale' : 'Main navigation'}
+		>
 			<a class="brand" href="#accueil" aria-label="Patel Electrique Inc">
 				<img src={logo} alt="Patel Electrique Inc" />
 			</a>
 
 			<nav>
-				<a href="#services">Services</a>
-				<a href="#avis">Avis</a>
-				<a href="#contact">Contact</a>
+				<a href="#services">{content.nav.services}</a>
+				<a href="#avis">{content.nav.reviews}</a>
+				<a href="#contact">{content.nav.contact}</a>
 				<a class="nav-phone" href={phoneHref}>{phoneDisplay}</a>
 			</nav>
+
+			<div
+				class="language-switch"
+				aria-label={language === 'fr' ? 'Choix de langue' : 'Language selector'}
+			>
+				<button type="button" class:active={language === 'fr'} onclick={() => (language = 'fr')}>
+					FR
+				</button>
+				<button type="button" class:active={language === 'en'} onclick={() => (language = 'en')}>
+					EN
+				</button>
+			</div>
 		</header>
 
 		<div class="hero-body">
 			<div class="hero-inner">
-				<p class="eyebrow">Electriciens residentiels et commerciaux</p>
-				<h1>Un travail electrique propre, ponctuel et conforme.</h1>
-				<p class="intro">
-					Patel Electrique Inc accompagne les proprietaires et les entreprises avec des conseils
-					clairs, une execution precise et une reputation batie sur la confiance.
-				</p>
+				<p class="eyebrow">{content.hero.eyebrow}</p>
+				<h1>{content.hero.title}</h1>
+				<p class="intro">{content.hero.intro}</p>
 
 				<div class="hero-actions">
-					<a class="button primary" href="#contact">Demander une estimation</a>
-					<a class="button call" href={phoneHref}>Appeler {phoneDisplay}</a>
-					<a class="button secondary" href="#avis">Voir les avis</a>
+					<a class="button primary" href="#contact">{content.hero.estimate}</a>
+					<a class="button call" href={phoneHref}>{content.hero.call}</a>
+					<a class="button secondary" href="#avis">{content.hero.reviews}</a>
 				</div>
 			</div>
 
 			<figure class="hero-media" data-reveal>
 				<img
 					src={heroInstallation}
-					alt="Installation electrique residentielle propre dans un interieur lumineux"
+					alt={language === 'fr'
+						? 'Installation électrique résidentielle propre dans un intérieur lumineux'
+						: 'Clean residential electrical installation in a bright interior'}
 					loading="eager"
 					decoding="async"
 				/>
-				<figcaption>Installation residentielle</figcaption>
+				<figcaption>{content.hero.media}</figcaption>
 			</figure>
 		</div>
 
-		<div class="rating-strip" aria-label="Evaluation Google">
+		<div class="rating-strip" aria-label={content.rating.label}>
 			<strong>5,0</strong>
-			<span>136 avis Google</span>
-			<span>Travail bien fait et propre</span>
-			<span>A l'heure prevue</span>
-			<a href={phoneHref}>Appel direct {phoneDisplay}</a>
+			<span>{content.rating.reviews}</span>
+			<span>{content.rating.clean}</span>
+			<span>{content.rating.punctual}</span>
+			<a href={phoneHref}>{content.rating.call}</a>
 		</div>
 	</section>
 
 	<section class="statement" data-reveal>
 		<div>
-			<p class="section-kicker">Patel Electrique Inc</p>
-			<h2>Des interventions serieuses, sans raccourcis.</h2>
+			<p class="section-kicker">{content.statement.kicker}</p>
+			<h2>{content.statement.title}</h2>
 		</div>
-		<p>
-			Chaque mandat est traite avec le meme standard: comprendre le besoin, expliquer les options,
-			proteger les lieux, executer avec precision et laisser une installation securitaire.
-		</p>
+		<p>{content.statement.text}</p>
 	</section>
 
 	<section class="services" id="services" aria-labelledby="services-title" data-reveal>
 		<div class="section-heading">
-			<p class="section-kicker">Services</p>
-			<h2 id="services-title">Pour proprietes privees et espaces de travail.</h2>
+			<p class="section-kicker">{content.nav.services}</p>
+			<h2 id="services-title">{content.servicesTitle}</h2>
 		</div>
 
 		<div class="service-grid">
-			{#each services as service}
+			{#each content.services as service}
 				<article class="service-card">
 					<span aria-hidden="true"></span>
 					<h3>{service.title}</h3>
@@ -141,51 +335,43 @@
 
 	<section class="proof" aria-labelledby="proof-title" data-reveal>
 		<div class="proof-copy">
-			<p class="section-kicker">Methode</p>
-			<h2 id="proof-title">Clair avant, propre pendant, conforme apres.</h2>
-			<p>
-				Les avis clients reviennent sur les memes points: ponctualite, professionnalisme,
-				explications simples et travaux faits avec soin. C'est le standard applique sur chaque
-				intervention.
-			</p>
+			<p class="section-kicker">{content.proof.kicker}</p>
+			<h2 id="proof-title">{content.proof.title}</h2>
+			<p>{content.proof.text}</p>
 		</div>
 
 		<div class="proof-stack">
 			<figure class="proof-media">
 				<img
 					src={panelInspection}
-					alt="Panneau electrique organise avec outil de mesure et cablage soigne"
+					alt={language === 'fr'
+						? 'Panneau électrique organisé avec outil de mesure et câblage soigné'
+						: 'Organized electrical panel with measuring tool and careful wiring'}
 					loading="lazy"
 					decoding="async"
 				/>
-				<figcaption>Inspection et verification</figcaption>
+				<figcaption>{content.proof.media}</figcaption>
 			</figure>
 
 			<div class="proof-list">
-				<div>
-					<strong>01</strong>
-					<span>Evaluation du besoin et conseils pratiques</span>
-				</div>
-				<div>
-					<strong>02</strong>
-					<span>Execution efficace avec respect des lieux</span>
-				</div>
-				<div>
-					<strong>03</strong>
-					<span>Travail termine selon le code et sans compromis</span>
-				</div>
+				{#each content.proof.steps as step, index}
+					<div>
+						<strong>{String(index + 1).padStart(2, '0')}</strong>
+						<span>{step}</span>
+					</div>
+				{/each}
 			</div>
 		</div>
 	</section>
 
 	<section class="reviews" id="avis" aria-labelledby="reviews-title" data-reveal>
 		<div class="section-heading">
-			<p class="section-kicker">Avis</p>
-			<h2 id="reviews-title">Une note parfaite, portee par la constance.</h2>
+			<p class="section-kicker">{content.nav.reviews}</p>
+			<h2 id="reviews-title">{content.reviewsTitle}</h2>
 		</div>
 
 		<div class="review-grid">
-			{#each reviews as review}
+			{#each content.reviews as review}
 				<figure class="review-card">
 					<blockquote>{review.quote}</blockquote>
 					<figcaption>{review.name}</figcaption>
@@ -197,68 +383,65 @@
 	<section class="contact" id="contact" aria-labelledby="contact-title" data-reveal>
 		<div class="contact-info">
 			<div class="contact-copy">
-				<p class="section-kicker">Contact</p>
-				<h2 id="contact-title">Parlez-nous de votre projet.</h2>
-				<p>
-					Pour une demande rapide, appelez directement. Sinon, decrivez le travail a faire,
-					l'adresse du projet et vos disponibilites.
-				</p>
+				<p class="section-kicker">{content.nav.contact}</p>
+				<h2 id="contact-title">{content.contact.title}</h2>
+				<p>{content.contact.text}</p>
 			</div>
 
-			<div class="contact-details" aria-label="Coordonnees">
+			<div class="contact-details" aria-label={content.contact.detailsLabel}>
 				<a class="detail-card phone-card" href={phoneHref}>
-					<span>Telephone</span>
+					<span>{content.contact.phone}</span>
 					<strong>{phoneDisplay}</strong>
 				</a>
 
 				<div class="detail-card">
-					<span>Adresse</span>
+					<span>{content.contact.address}</span>
 					<strong>{address}</strong>
 				</div>
 
 				<div class="detail-card hours-card">
-					<span>Heures d'ouverture</span>
+					<span>{content.contact.hours}</span>
 					<ul>
-						{#each hours as item}
+						{#each content.hours as item}
 							<li>
 								<strong>{item.day}</strong>
 								<time>{item.time}</time>
 							</li>
 						{/each}
 					</ul>
-					<p>Les horaires peuvent varier les jours feries.</p>
+					<p>{content.contact.holiday}</p>
 				</div>
 			</div>
 		</div>
 
 		<form name="contact" method="post">
 			<label>
-				Nom
+				{content.contact.form.name}
 				<input name="name" type="text" autocomplete="name" required />
 			</label>
 
 			<label>
-				Courriel
+				{content.contact.form.email}
 				<input name="email" type="email" autocomplete="email" required />
 			</label>
 
 			<label>
-				Type de projet
+				{content.contact.form.project}
 				<select name="project" required>
-					<option value="">Selectionner</option>
-					<option>Residentiel</option>
-					<option>Commercial</option>
-					<option>Mise aux normes</option>
-					<option>Autre demande</option>
+					<option value="">{content.contact.form.select}</option>
+					{#each content.services as service}
+						<option>{service.title}</option>
+					{/each}
+					<option>{language === 'fr' ? 'Autre demande' : 'Other request'}</option>
 				</select>
 			</label>
 
 			<label>
-				Message
+				{content.contact.form.message}
 				<textarea name="message" rows="5" required></textarea>
 			</label>
 
-			<button type="submit">Envoyer la demande</button>
+			<button type="submit">{content.contact.form.submit}</button>
 		</form>
 	</section>
 
@@ -267,19 +450,19 @@
 			<a class="footer-brand" href="#accueil" aria-label="Patel Electrique Inc">
 				<img src={logo} alt="Patel Electrique Inc" />
 			</a>
-			<p>Electriciens residentiels et commerciaux a Dollard-des-Ormeaux.</p>
+			<p>{content.footer.tagline}</p>
 		</div>
 
 		<div>
-			<h2>Coordonnees</h2>
+			<h2>{content.footer.coordinates}</h2>
 			<a class="footer-phone" href={phoneHref}>{phoneDisplay}</a>
 			<p>{address}</p>
 		</div>
 
 		<div>
-			<h2>Heures</h2>
+			<h2>{content.footer.hours}</h2>
 			<ul class="footer-hours">
-				{#each hours as item}
+				{#each content.hours as item}
 					<li>
 						<span>{item.day}</span>
 						<span>{item.time}</span>
@@ -289,16 +472,16 @@
 		</div>
 
 		<div>
-			<h2>Navigation</h2>
-			<a href="#services">Services</a>
-			<a href="#avis">Avis</a>
-			<a href="#contact">Contact</a>
-			<a href="/confidentialite">Politique de confidentialite</a>
+			<h2>{content.footer.navigation}</h2>
+			<a href="#services">{content.nav.services}</a>
+			<a href="#avis">{content.nav.reviews}</a>
+			<a href="#contact">{content.nav.contact}</a>
+			<a href="/confidentialite">{content.footer.privacy}</a>
 		</div>
 
 		<div class="footer-legal">
-			<p>&copy; {currentYear} Patel Electrique Inc. Tous droits reserves.</p>
-			<a href="/confidentialite">Politique de confidentialite</a>
+			<p>&copy; {currentYear} Patel Electrique Inc. {content.footer.rights}</p>
+			<a href="/confidentialite">{content.footer.privacy}</a>
 		</div>
 	</footer>
 </main>
@@ -458,6 +641,34 @@
 	nav .nav-phone:hover {
 		border-color: #2f64b7;
 		background: #2f64b7;
+	}
+
+	.language-switch {
+		display: inline-grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1px;
+		border: 1px solid #161616;
+		background: #161616;
+	}
+
+	.language-switch button {
+		min-height: 38px;
+		border: 0;
+		padding: 8px 12px;
+		background: #fff;
+		color: #161616;
+		font-size: 0.72rem;
+	}
+
+	.language-switch button.active {
+		background: #161616;
+		color: #fff;
+	}
+
+	.language-switch button:hover {
+		background: #2f64b7;
+		color: #fff;
+		transform: none;
 	}
 
 	.hero-body {
