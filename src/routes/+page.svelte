@@ -6,6 +6,7 @@
 	const phoneDisplay = '(514) 684-3844';
 	const phoneHref = 'tel:+15146843844';
 	const address = '64 Rue Audubon, Dollard-des-Ormeaux, QC H9B 3E9';
+	const currentYear = new Date().getFullYear();
 
 	const hours = [
 		{ day: 'Lundi', time: '8h00-17h00' },
@@ -292,6 +293,12 @@
 			<a href="#services">Services</a>
 			<a href="#avis">Avis</a>
 			<a href="#contact">Contact</a>
+			<a href="/confidentialite">Politique de confidentialite</a>
+		</div>
+
+		<div class="footer-legal">
+			<p>&copy; {currentYear} Patel Electrique Inc. Tous droits reserves.</p>
+			<a href="/confidentialite">Politique de confidentialite</a>
 		</div>
 	</footer>
 </main>
@@ -991,6 +998,12 @@
 		gap: 12px;
 	}
 
+	.site-footer > div:nth-child(4) {
+		display: grid;
+		align-content: start;
+		gap: 12px;
+	}
+
 	.footer-phone {
 		display: inline-block;
 		margin-bottom: 14px;
@@ -1002,6 +1015,21 @@
 	.footer-hours li {
 		grid-template-columns: minmax(82px, 0.7fr) 1fr;
 		font-size: 0.95rem;
+	}
+
+	.footer-legal {
+		grid-column: 1 / -1;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 14px 28px;
+		border-top: 1px solid rgba(255, 255, 255, 0.14);
+		padding-top: 28px;
+	}
+
+	.footer-legal p,
+	.footer-legal a {
+		font-size: 0.82rem;
 	}
 
 	@media (prefers-reduced-motion: no-preference) {
