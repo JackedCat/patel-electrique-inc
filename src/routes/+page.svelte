@@ -703,10 +703,10 @@
 	h1 {
 		max-width: 780px;
 		margin-bottom: 22px;
-		font-size: clamp(3.2rem, 9vw, 8.4rem);
+		font-size: clamp(2.8rem, 6.8vw, 6.4rem);
 		font-weight: 850;
 		letter-spacing: 0;
-		line-height: 0.91;
+		line-height: 0.96;
 	}
 
 	h2 {
@@ -1331,7 +1331,7 @@
 		}
 
 		h1 {
-			font-size: clamp(3rem, 18vw, 5.2rem);
+			font-size: clamp(2.65rem, 15vw, 4.4rem);
 		}
 
 		.button,
